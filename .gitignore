@@ -1,6 +1,12 @@
 /*
+!/.config/i3/
+!/.config/i3/**
+
 !/bin/
 !/bin/**
 
+
 !.gitignore
 !.vimrc
+
+
