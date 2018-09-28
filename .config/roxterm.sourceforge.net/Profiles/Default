@@ -1,0 +1,10 @@
+[roxterm profile]
+show_tab_num=1
+tab_pos=4
+hide_menubar=0
+show_add_tab_btn=0
+always_show_tabs=0
+colour_scheme=Tango
+use_custom_command=1
+command=zsh
+font=Monospace 12

@@ -2,6 +2,9 @@
 !/.config/i3/
 !/.config/i3/**
 
+!/.config/roxterm.sourceforge.net/
+!/.config/roxterm.sourceforge.net/**
+
 !/bin/
 !/bin/**
 
