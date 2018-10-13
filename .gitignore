@@ -8,6 +8,10 @@
 !/bin/
 !/bin/**
 
+!/envs/
+!/envs/java/
+!/envs/java/**
+/envs/java/.*
 
 !.gitignore
 !.vimrc

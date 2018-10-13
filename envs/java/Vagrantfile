@@ -1,0 +1,25 @@
+
+
+Vagrant.configure("2") do |config|
+  config.vm.hostname = "jakarta"
+  config.vm.box = "rvanlaar/bionic64-lxc"
+  config.vm.define "Jakarta"
+  config.vm.provider :lxc do |lxc|
+    # Same effect as 'customize ["modifyvm", :id, "--memory", "1024"]' for VirtualBox
+    lxc.customize 'cgroup.memory.limit_in_bytes', '1024M'
+  end
+
+  # install packages
+  config.vm.provision :shell, path: "bootstrap.sh"
+
+  #copy vim and zsh config
+  config.vm.provision "file", source: "~/.vimrc", destination: "/home/vagrant/.vimrc"
+  config.vm.provision "file", source: "~/.zshrc", destination: "/home/vagrant/.zshrc"
+
+  #share work directory
+  config.vm.synced_folder "~/work/", "/home/vagrant/work"
+
+  config.ssh.forward_agent = true
+  config.ssh.forward_x11 = true
+
+end
