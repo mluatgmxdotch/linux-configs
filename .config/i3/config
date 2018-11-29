@@ -160,7 +160,7 @@ bindsym $mod+l exec "~/bin/fuzzy_lock.sh"
 
 exec xautolock -time 1 -locker '~/bin/fuzzy_lock.sh' &
 
-exec --no-startup-id echo Xft.dpi: 144 | xrdb -merge
+#exec --no-startup-id echo Xft.dpi: 144 | xrdb -merge
 
 exec --no-startup-id "i3-msg 'workspace 1; append_layout ~/.config/i3/workspace-1.json'"
 
@@ -169,4 +169,4 @@ exec --no-startup-id i3-sensible-terminal
 exec --no-startup-id firefox
 exec_always --no-startup-id dbus-launch nm-applet
 exec_always --no-startup-id dbus-launch pasystray
-
+exec_always --no-startup-id dbus-launch blueman-applet 
