@@ -1,0 +1,6 @@
+---
+
+#default for terraform
+terraform_version: 0.11.11
+terraform_dir: /opt/terraform
+terraform_user: root

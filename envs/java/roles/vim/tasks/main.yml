@@ -1,0 +1,13 @@
+---
+- name: Installing vim
+  apt: pkg=vim,curl,git state=latest
+  register: viminst
+
+- name: Create vim config
+  copy:
+    src=/home/z003wuxn/.vimrc
+    dest=~/.vimrc
+  when: viminst|success
+  become: no
+
+
