@@ -37,7 +37,7 @@
                             "percent": 1,
                             "swallows": [
                                {
-                                 "class": "^X\\-terminal\\-emulator$"
+                                 "class": "^Lilyterm$"
                                }
                             ],
                             "type": "con"
@@ -58,7 +58,7 @@
                     "percent": 0.5,
                     "swallows": [
                        {
-                        "class": "^X\\-terminal\\-emulator$"
+                        "class": "^Lilyterm$"
                        }
                     ],
                     "type": "con"
@@ -75,11 +75,11 @@
                "x": 0,
                "y": 0
             },
-            "name": "Digg - What the Internet is talking about right now - Mozilla Firefox",
+            "name": "Mozilla Firefox",
             "percent": 0.5,
             "swallows": [
                {
-                "class": "^Firefox$",
+                "class": "^Firefox\\-esr$",
                 "instance": "^Navigator$"
                }
             ],
