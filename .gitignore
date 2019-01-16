@@ -1,17 +1,12 @@
 /*
-!/.config/i3/
-!/.config/i3/**
-
-!/.config/roxterm.sourceforge.net/
-!/.config/roxterm.sourceforge.net/**
-
 !/bin/
 !/bin/**
 
 !/envs/
 !/envs/java/
 !/envs/java/**
-/envs/java/.*
+/envs/java/.vagrant
+/envs/java/*.retry
 
 !.gitignore
 !.vimrc
