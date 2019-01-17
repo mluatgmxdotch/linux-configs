@@ -1,5 +1,5 @@
 #!/bin/bash
-sudo apt install lxc
+sudo apt install lxc redir ansible
 
 wget https://releases.hashicorp.com/vagrant/2.1.5/vagrant_2.1.5_x86_64.deb -P /tmp
 sudo dpkg -i /tmp/vagrant_2.1.5_x86_64.deb
