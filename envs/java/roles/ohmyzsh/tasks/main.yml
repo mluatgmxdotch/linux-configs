@@ -40,3 +40,6 @@
 - name: Change user shell to zsh
   user: name=vagrant shell=/usr/bin/zsh
   when: cloning|success
+
+- name: Change local to en-US UTF8
+  action: command sudo update-locale LC_ALL=en_US.UTF-8

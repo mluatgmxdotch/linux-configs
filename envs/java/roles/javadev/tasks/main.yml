@@ -1,6 +1,6 @@
 ---
 - name: Install Java SDK Headless
-  apt: pkg=default-jdk-headless,maven state=latest
+  apt: pkg=default-jdk,maven state=latest
   register: jdk-headless
 
 
