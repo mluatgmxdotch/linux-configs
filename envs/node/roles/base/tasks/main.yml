@@ -1,0 +1,10 @@
+- name: Install base packages
+  apt: name={{ item }} state=installed
+  with_items:
+   - curl
+   - tree
+   - zsh
+   - htop
+   - git
+  tags:
+   - packages
