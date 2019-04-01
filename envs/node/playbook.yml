@@ -39,6 +39,7 @@
     - ohmyzsh
     - x11forward
     - nodedev
+    - code
     #- docker
     #- aws
     #- terraform
