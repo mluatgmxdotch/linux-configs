@@ -7,4 +7,4 @@
     repo: deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main
 
 - name: Install VS Code
-  apt: pkg=code state=latest
+  apt: pkg=code,libasound2 state=latest
