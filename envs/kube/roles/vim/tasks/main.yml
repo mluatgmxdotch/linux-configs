@@ -7,7 +7,7 @@
   copy:
     src=~/.vimrc
     dest=~/.vimrc
-  when: viminst|success
+  when: viminst is success
   become: no
 
 
