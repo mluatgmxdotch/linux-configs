@@ -1,0 +1,5 @@
+---
+- name: Enabling xforwarding
+  apt: pkg=xbase-clients state=latest
+  register: xforwardinst
+

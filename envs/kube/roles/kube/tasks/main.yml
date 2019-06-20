@@ -1,0 +1,11 @@
+---
+- name: Add GPG key
+  apt_key: url=https://packages.cloud.google.com/apt/doc/apt-key.gpg
+
+- name: Add APT repository
+  apt_repository:
+    repo: deb [arch=amd64] https://apt.kubernetes.io/ kubernetes-xenial main
+
+- name: Install Kubectl
+  apt: pkg=apt-transport-https,kubectl state=latest
+
