@@ -97,4 +97,4 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
-alias unsetproxy="unset http_proxy https_proxy HTTP_PROXY HTTPS_PROXY NO_PROXY no_proxy"
+alias unsetproxy="unset http_proxy https_proxy HTTP_PROXY HTTPS_PROXY NO_PROXY no_proxy VAGRANT_HTTP_PROXY VAGRANT_HTTPS_PROXY VAGRANT_NO_PROXY"
