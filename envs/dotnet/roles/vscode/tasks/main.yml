@@ -1,0 +1,11 @@
+---
+- name: Add Code GPG key
+  apt_key: url=https://packages.microsoft.com/keys/microsoft.asc
+
+- name: Add Code APT repository
+  apt_repository:
+    repo: deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main
+
+- name: Install Code And Dependencies
+  apt: pkg=code state=latest
+

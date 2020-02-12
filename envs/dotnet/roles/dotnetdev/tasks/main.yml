@@ -13,7 +13,7 @@
 
 - name: Install Dotnet SDK
   apt: pkg=dotnet-sdk-2.2 state=latest
-  register:  dotnet-sdk
+  register: dotnetsdk
 
 
 
