@@ -39,6 +39,7 @@
     - ohmyzsh
     - x11forward
     - dotnetdev
+    - vscode
     #- docker
     #- aws
     #- terraform

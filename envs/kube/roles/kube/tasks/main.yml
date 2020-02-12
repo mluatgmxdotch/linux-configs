@@ -7,5 +7,9 @@
     repo: deb [arch=amd64] https://apt.kubernetes.io/ kubernetes-xenial main
 
 - name: Install Kubectl
-  apt: pkg=apt-transport-https,kubectl state=latest
+  apt:
+    name: kubectl=1.12.7-00
+
+
+
 

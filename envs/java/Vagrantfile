@@ -6,7 +6,7 @@ Vagrant.configure("2") do |config|
   config.vm.define "Jakarta"
   config.vm.provider :lxc do |lxc|
     # Same effect as 'customize ["modifyvm", :id, "--memory", "1024"]' for VirtualBox
-    lxc.customize 'cgroup.memory.limit_in_bytes', '3G'
+    lxc.customize 'cgroup.memory.limit_in_bytes', '6G'
   end
 
   config.vm.provision "ansible" do |ansible|
