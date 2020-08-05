@@ -12,8 +12,8 @@
   apt: update_cache=yes
 
 - name: Install Dotnet SDK
-  apt: pkg=dotnet-sdk-2.2 state=latest
-  register: dotnetsdk
+  apt: pkg=dotnet-sdk-3.1 state=latest
+  register:  dotnet-sdk
 
 
 
