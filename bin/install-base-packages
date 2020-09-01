@@ -1,4 +1,4 @@
 #!/bin/bash
 
 
-sudo apt install vim curl tree htop zsh i3 lightdm xautolock pasystray scrot gimp sxiv lilyterm  imagemagick-6.q1
+sudo apt install vim curl tree htop zsh i3 lightdm xautolock pasystray scrot gimp sxiv sakura imagemagick-6.q1 pavucontrol
