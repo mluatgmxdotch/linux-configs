@@ -26,7 +26,7 @@
 - name: Clone zsh-syntax-highlight
   git:
     repo=https://github.com/zsh-users/zsh-syntax-highlighting.git
-    dest=~/.oh-my-zsh/plugins/plugins/zsh-syntax-highlighting
+    dest=~/.oh-my-zsh/plugins/zsh-syntax-highlighting
   when: cloning is success
   become: no
 
@@ -38,8 +38,9 @@
   become: no
 
 - name: Change user shell to zsh
-  user: name=vagrant shell=/usr/bin/zsh
+  user: name=ubuntu shell=/usr/bin/zsh
   when: cloning is success
 
 - name: Change local to en-US UTF8
-  action: command sudo update-locale LC_ALL=en_US.UTF-8
+  action: command update-locale LC_ALL=en_US.UTF-8
+  become: yes

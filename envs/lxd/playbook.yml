@@ -1,39 +1,41 @@
+
+# Profile initate box with ssh key
+- hosts: localhost
+  connection: local
+  tasks:
+    - name: Create a profile
+      lxd_profile:
+        name: dev
+        state: present
+        config: {
+           "user.vendor-data": "#cloud-config\nssh_authorized_keys:\n  - ${file('~/.ssh/id_rsa.pub')}\npackages:\n  - ssh\n  - ansible" }
+        description: Dev profile
+        devices:
+          eth0:
+            name: eth0
+            network: lxdbr0
+            type: nic
+          root:
+            path: /
+            pool: default
+            type: disk
+
 # An example for creating a Ubuntu container and install python
 - hosts: localhost
   connection: local
   tasks:
     - name: Create a started container
       lxd_container:
-        name: mycontainer
+        name: jakarta
         state: started
         source:
           type: image
           mode: pull
           server: https://images.linuxcontainers.org
-          protocol: lxd # if you get a 404, try setting protocol: simplestreams
-          alias: ubuntu/focal/amd64
-        profiles: ["default"]
+          protocol: simplestreams # lxd, if you get a 404, try setting protocol: simplestreams
+          alias: ubuntu/focal/cloud
+        profiles: ["dev"]
         wait_for_ipv4_addresses: true
         timeout: 600
 
-    - name: check python is installed in container
-      delegate_to: mycontainer
-      raw: dpkg -s python
-      register: python_install_check
-      failed_when: python_install_check.rc not in [0, 1]
-      changed_when: false
-
-
-    - name: install python in container
-      delegate_to: mycontainer
-      raw: apt-get install -y python
-      when: python_install_check.rc == 1
-
-    - name: base packs
-      delegate_to: mycontainer
-      shell: hostname 
-      register: result
-
-    - debug:
-       var: result
 

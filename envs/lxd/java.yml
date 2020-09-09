@@ -2,36 +2,7 @@
 - name: Java Cloud
   hosts: all
   become: yes
-  gather_facts: False
-  pre_tasks:
-   - name: Disable autoupdate
-     raw: echo 'APT::Periodic::Enable "0";' > /etc/apt/apt.conf.d/02periodic
-
-   - name: Disable apt-daily.service
-     raw: systemctl disable apt-daily.service
-   - name: Disable apt-daily.timer
-     raw: systemctl disable apt-daily.timer
-   - name: Disable apt-daily-upgrade.service
-     raw: systemctl disable apt-daily-upgrade.service
-   - name: Disable apt-daily-upgrade.timer
-     raw: systemctl disable apt-daily-upgrade.timer
-
-   - name: Stop apt-daily
-     raw: systemctl stop apt-daily.service
-   - name: Stop apt-daily.timer
-     raw: systemctl stop apt-daily.timer
-   - name: Stop apt-daily
-     raw: systemctl stop apt-daily-upgrade.service
-   - name: Stop apt-daily.timer
-     raw: systemctl stop apt-daily-upgrade.timer
-
-   - name: Wait for apt-daily to finish
-     raw: systemd-run --property="After=apt-daily.service apt-daily-upgrade.service" --wait /bin/true
-
-   - name: Install python for Ansible
-     raw: test -e /usr/bin/python || (apt -y update && apt install -y python3-minimal python3-apt)
-     changed_when: False
-   - setup: # aka gather_facts
+  gather_facts: True
 
   roles:
     - base
@@ -42,5 +13,6 @@
     - docker
     - aws
     - terraform
+    - idea
 
 

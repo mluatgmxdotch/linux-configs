@@ -20,13 +20,14 @@
   file:
     path: "{{terraform_dir}}"
     state: directory
+  register: terraform_directory
 
 - name: Unarchive Terraform archive
   unarchive:
     src: /tmp/terraform-{{terraform_version}}.zip
     dest: "{{terraform_dir}}"
     copy: no
-  when: terraform_versions_match.rc != 0 or terraform_directory | changed
+  when: terraform_versions_match.rc != 0 or terraform_directory is changed
 
 - name: Make terraform_user terraform directory owner
   file:
