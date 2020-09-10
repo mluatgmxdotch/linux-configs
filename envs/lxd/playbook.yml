@@ -8,13 +8,14 @@
         name: dev
         state: present
         config: {
-           "user.vendor-data": "#cloud-config\nssh_authorized_keys:\n  - ${file('~/.ssh/id_rsa.pub')}\npackages:\n  - ssh\n  - ansible" }
+           "user.vendor-data": "#cloud-config\nssh_authorized_keys:\n  - {{ lookup('file', '~/.ssh/id_rsa.pub') }}\npackages:\n  - ssh\n  - ansible" }
         description: Dev profile
         devices:
           eth0:
             name: eth0
-            network: lxdbr0
+            nictype: bridged
             type: nic
+            parent: lxdbr0
           root:
             path: /
             pool: default
