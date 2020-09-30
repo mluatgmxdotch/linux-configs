@@ -25,8 +25,19 @@
     group: "{{idea_user}}"
     recurse: yes
 
+- name: find folders from location
+  find:
+    paths: "{{idea_dir}}"
+    file_type: directory
+    patterns: "idea-IC-*"
+    recurse: no
+    use_regex: yes
+  register: idea_dirs_to_link
+
+- debug: var=idea_dirs_to_link
+
 - name: Adding terraform command to user path
   file:
-    src: "{{idea_dir}}/idea"
-    dest: "~/.local/bin/idea"
+    src: "{{idea_dirs_to_link.files[0].path}}/bin/idea.sh"
+    dest: "/home/{{idea_user}}/.local/bin/idea-ic"
     state: link
