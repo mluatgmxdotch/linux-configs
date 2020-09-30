@@ -1,5 +1,5 @@
 ---
 
-#default for terraform
+#default for idea
 idea_dir: /home/ubuntu/.local/bin/idea
 idea_user: ubuntu
