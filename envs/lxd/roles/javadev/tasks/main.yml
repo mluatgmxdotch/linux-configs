@@ -1,0 +1,7 @@
+---
+- name: Install Java SDK Headless
+  apt: pkg=openjdk-8-jdk,openjfx,maven state=latest
+  register: jdkheadless
+
+
+

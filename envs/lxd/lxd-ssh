@@ -1,0 +1,6 @@
+#!/bin/bash
+
+CONTAINER_IP=$(lxc info $1 | sed -nr 's/\s+eth0:\s+inet\s(.+)\s+\w+/\1/p')
+echo $1 $CONTAINER_IP
+
+ssh -X ubuntu@$CONTAINER_IP

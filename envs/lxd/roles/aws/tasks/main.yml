@@ -1,0 +1,5 @@
+---
+- name: Install AWS CLI
+  apt: pkg=awscli state=latest
+  register: awscli_installed
+
