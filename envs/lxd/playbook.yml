@@ -21,7 +21,7 @@
             pool: default
             type: disk
 
-# An example for creating a Ubuntu container and install python
+# java host jakarta
 - hosts: localhost
   connection: local
   tasks:
@@ -53,4 +53,35 @@
         wait_for_ipv4_addresses: true
         timeout: 600
 
+# node host named newfoundland
+- hosts: localhost
+  connection: local
+  tasks:
+    - getent:
+        database: passwd
+        key: "{{ansible_user_id}}"
+
+    - name: Create a started container
+      lxd_container:
+        name: newfoundland
+        state: started
+        source:
+          type: image
+          mode: pull
+          server: https://images.linuxcontainers.org
+          protocol: simplestreams # lxd, if you get a 404, try setting protocol: simplestreams
+          alias: ubuntu/focal/cloud
+        config:
+          security.idmap.base: "200000"
+          security.idmap.isolated: "TRUE"
+          security.idmap.size: "200000"
+          raw.idmap: "uid {{getent_passwd[ansible_user_id].1}} 1000\ngid {{getent_passwd[ansible_user_id].2}} 1002\n"
+        devices:
+           sharedwork:
+             path: /home/ubuntu/work
+             source: "/home/{{ansible_user_id}}/work/"
+             type: disk
+        profiles: ["dev"]
+        wait_for_ipv4_addresses: true
+        timeout: 600
 
