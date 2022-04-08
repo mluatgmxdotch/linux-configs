@@ -1,0 +1,16 @@
+---
+
+# Container
+- name: Started container
+  lxd_container:
+    name: "{{instance_name}}" 
+    state: started
+    profiles: ["dev","gui", "work"]
+    wait_for_ipv4_addresses: true
+    timeout: 600
+    source:
+      type: image
+      mode: pull
+      server: https://images.linuxcontainers.org
+      protocol: simplestreams
+      alias: ubuntu/focal/cloud
