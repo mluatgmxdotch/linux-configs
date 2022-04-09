@@ -17,14 +17,6 @@
     copy: no
   when: idea_directory is changed
 
-- name: Make terraform_user terraform directory owner
-  file:
-    path: "{{idea_dir}}"
-    state: directory
-    owner: "{{idea_user}}"
-    group: "{{idea_user}}"
-    recurse: yes
-
 - name: find folders from location
   find:
     paths: "{{idea_dir}}"
@@ -41,3 +33,11 @@
     src: "{{idea_dirs_to_link.files[0].path}}/bin/idea.sh"
     dest: "/home/{{idea_user}}/.local/bin/idea-ic"
     state: link
+
+- name: Make terraform_user terraform directory owner
+  file:
+    path: "/home/ubuntu/.local"
+    state: directory
+    owner: "{{idea_user}}"
+    group: "{{idea_user}}"
+    recurse: yes
