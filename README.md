@@ -40,3 +40,4 @@ git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/plug
 Install swiss german
 
 https://addons.mozilla.org/en-US/firefox/addon/dictionary-german-swiss/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search
+
