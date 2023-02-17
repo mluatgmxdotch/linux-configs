@@ -40,6 +40,7 @@
           protocol: simplestreams # lxd, if you get a 404, try setting protocol: simplestreams
           alias: ubuntu/jammy/cloud
         config:
+          security.nesting: "true"
           security.idmap.base: "200000"
           security.idmap.isolated: "TRUE"
           security.idmap.size: "200000"
@@ -72,6 +73,7 @@
           protocol: simplestreams # lxd, if you get a 404, try setting protocol: simplestreams
           alias: ubuntu/jammy/cloud
         config:
+          security.nesting: "true"
           security.idmap.base: "200000"
           security.idmap.isolated: "TRUE"
           security.idmap.size: "200000"
