@@ -51,6 +51,14 @@ sudo apt update
 sudo apt install ansible
 ```
 
-Provision machines
+# Gen SSH Keys
 ```
+ssh-keygen -t rsa
+```
+
+
+# Provision machines
+```
+cd envs/lxd
+ansible-playbook playbook.yml
 ```
