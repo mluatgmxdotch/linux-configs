@@ -42,7 +42,10 @@ Install swiss german
 https://addons.mozilla.org/en-US/firefox/addon/dictionary-german-swiss/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search
 
 
-Install Lxd
+Install Lxd & Ansible
 ```
 sudo snap install lxd
+sudo apt-add-repository ppa:ansible/ansible
+sudo apt update
+sudo apt install ansible
 ```
