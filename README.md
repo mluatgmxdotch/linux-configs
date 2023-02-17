@@ -60,6 +60,7 @@ ssh-keygen -t rsa
 
 # Provision machines
 ```
-cd envs/lxd
+mkdir ~/work
+cd ~/envs/lxd
 ansible-playbook playbook.yml
 ```
