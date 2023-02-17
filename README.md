@@ -18,3 +18,15 @@ cd configs
 git config core.worktree "../../"
 git reset --hard origin/master
 ```
+
+```
+sudo update-alternatives --config x-terminal-emulator
+```
+
+```
+sudo apt update && sudo apt install ttf-mscorefonts-installer
+```
+
+install termnus fonts 
+https://files.ax86.net/terminus-ttf/#download
+
