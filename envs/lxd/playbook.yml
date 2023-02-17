@@ -38,7 +38,7 @@
           mode: pull
           server: https://images.linuxcontainers.org
           protocol: simplestreams # lxd, if you get a 404, try setting protocol: simplestreams
-          alias: ubuntu/focal/cloud
+          alias: ubuntu/jammy/cloud
         config:
           security.idmap.base: "200000"
           security.idmap.isolated: "TRUE"
@@ -70,7 +70,7 @@
           mode: pull
           server: https://images.linuxcontainers.org
           protocol: simplestreams # lxd, if you get a 404, try setting protocol: simplestreams
-          alias: ubuntu/focal/cloud
+          alias: ubuntu/jammy/cloud
         config:
           security.idmap.base: "200000"
           security.idmap.isolated: "TRUE"
