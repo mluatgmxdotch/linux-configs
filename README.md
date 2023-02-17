@@ -46,6 +46,7 @@ https://addons.mozilla.org/en-US/firefox/addon/dictionary-german-swiss/?utm_sour
 Install Lxd & Ansible
 ```
 sudo snap install lxd
+init lxd
 sudo apt-add-repository ppa:ansible/ansible
 sudo apt update
 sudo apt install ansible
