@@ -41,3 +41,8 @@ Install swiss german
 
 https://addons.mozilla.org/en-US/firefox/addon/dictionary-german-swiss/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search
 
+
+Install Lxd
+```
+sudo snap install lxd
+```
