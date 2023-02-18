@@ -1,6 +1,7 @@
+--- 
 
-# Profile initate box with ssh key
-- hosts: localhost
+- name: Devloper Workstation
+  hosts: localhost
   connection: local
   tasks:
     - name: Create a profile
@@ -86,4 +87,3 @@
         profiles: ["dev"]
         wait_for_ipv4_addresses: true
         timeout: 600
-

@@ -7,17 +7,17 @@ Have `Ansible` and `LXD` installed
 
 ```
 lxc start jakarta
-./lxc-ssh jakarta
+./lxc-login jakarta
 ```
 
 ## Re-provision a Developent Container e.g. with new Roles
 
 ```
-./lxd-ansible jakarta
+./lxc-ansible jakarta
 ```
 
 ## Create a new Container
 
 ```
 ansible-playbook playbook.yml
- ````
+```

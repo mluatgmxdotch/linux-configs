@@ -1,0 +1,60 @@
+---
+
+# Profile initiate box with ssh
+- name: Dev Profile
+  lxd_profile:
+    name: dev
+    state: present
+    config: {
+      "user.vendor-data": "#cloud-config\nssh_authorized_keys:\n  - {{ lookup('file', '~/.ssh/id_rsa.pub') }}\npackages:\n  - ssh\n  - ansible\nruncmd:\n  - [ chown,'ubuntu:ubuntu','/home/ubuntu']" }
+    description: Dev Profile
+    devices:
+      eth0:
+        name: eth0
+        nictype: bridged
+        type: nic
+        parent: lxdbr0
+      root:
+        path: /
+        pool: default
+        type: disk
+
+# Profile initiate box with gui
+- name: GUI Profile
+  lxd_profile:
+    name: gui
+    state: present
+    description: GUI profile
+    config:
+      environment.DISPLAY: :0
+    devices:
+      X0:
+        path: /tmp/.X11-unix/X0
+        source: /tmp/.X11-unix/X0
+        type: disk
+      mygpu:
+        type: gpu
+
+# Profile to share work folder
+- name: Get User Id
+  getent:
+    database: passwd
+    key: "{{ansible_user_id}}"
+
+- name: Work Profile
+  lxd_profile:
+    name: work
+    state: present
+    description: Work profile
+    config:
+      security.idmap.base: "200000"
+      security.idmap.isolated: "TRUE"
+      security.idmap.size: "200000"
+      security.nesting: "true"
+      raw.idmap: "uid {{getent_passwd[ansible_user_id].1}} 1000\ngid {{getent_passwd[ansible_user_id].2}} 1002\n"
+
+    devices:
+       sharedwork:
+         path: /home/ubuntu/work
+         source: "/home/{{ansible_user_id}}/work/"
+         type: disk
