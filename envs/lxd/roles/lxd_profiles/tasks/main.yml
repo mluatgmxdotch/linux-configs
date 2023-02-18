@@ -21,7 +21,7 @@
 
 # Profile initiate box with gui
 - name: GUI Profile
-  lxd_profile:     
+  lxd_profile:
     name: gui
     state: present
     description: GUI profile
@@ -40,16 +40,17 @@
   getent:
     database: passwd
     key: "{{ansible_user_id}}"
-        
+
 - name: Work Profile
-  lxd_profile:     
+  lxd_profile:
     name: work
     state: present
-    description: GUI profile
+    description: Work profile
     config:
       security.idmap.base: "200000"
       security.idmap.isolated: "TRUE"
       security.idmap.size: "200000"
+      security.nesting: "true"
       raw.idmap: "uid {{getent_passwd[ansible_user_id].1}} 1000\ngid {{getent_passwd[ansible_user_id].2}} 1002\n"
 
     devices:
