@@ -1,0 +1,43 @@
+---
+- name: Download PyCharm Archiv
+  get_url:
+    url: https://download-cdn.jetbrains.com/python/pycharm-community-2022.3.3.tar.gz
+    dest: /tmp/pycharm.tar.gz
+
+- name: Create dir
+  file:
+    path: "{{idea_dir}}"
+    state: directory
+  register: idea_directory
+
+- name: Unarchive archive
+  unarchive:
+    src: /tmp/pycharm.tar.gz
+    dest: "{{idea_dir}}"
+    copy: no
+  when: idea_directory is changed
+
+- name: find folders from location
+  find:
+    paths: "{{idea_dir}}"
+    file_type: directory
+    patterns: "pycharm-*"
+    recurse: no
+    use_regex: yes
+  register: idea_dirs_to_link
+
+- debug: var=idea_dirs_to_link
+
+- name: Adding command to user path
+  file:
+    src: "{{idea_dirs_to_link.files[0].path}}/bin/pycharm.sh"
+    dest: "/home/{{idea_user}}/.local/bin/pycharm"
+    state: link
+
+- name: Make terraform_user terraform directory owner
+  file:
+    path: "/home/{{idea_user}}/.local"
+    state: directory
+    owner: "{{idea_user}}"
+    group: "{{idea_user}}"
+    recurse: yes

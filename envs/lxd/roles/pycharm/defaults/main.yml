@@ -1,0 +1,5 @@
+---
+
+#default for idea
+idea_dir: /home/ubuntu/.local/bin/pycharm-ce
+idea_user: ubuntu
