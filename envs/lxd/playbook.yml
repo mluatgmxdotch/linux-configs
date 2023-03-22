@@ -31,3 +31,11 @@
     - role: lxd_container
       vars:
         instance_name: "papua"
+
+# dotnet
+- hosts: localhost
+  connection: local
+  roles:
+    - role: lxd_container
+      vars:
+        instance_name: "donna"

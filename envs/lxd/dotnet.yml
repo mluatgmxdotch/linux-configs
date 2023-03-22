@@ -1,0 +1,15 @@
+---
+- name: Node Cloud
+  hosts: all
+  become: yes
+  gather_facts: True
+
+  roles:
+    - base
+    - vim
+    - ohmyzsh
+    - x11forward
+    - docker
+    - code
+
+
