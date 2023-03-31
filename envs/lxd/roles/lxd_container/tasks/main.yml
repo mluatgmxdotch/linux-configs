@@ -1,9 +1,9 @@
 ---
 
-# Container
+
 - name: Started container
   lxd_container:
-    name: "{{instance_name}}" 
+    name: "{{instance_name}}"
     state: started
     profiles: ["dev","gui", "work", "port"]
     wait_for_ipv4_addresses: true
@@ -14,3 +14,27 @@
       server: https://images.linuxcontainers.org
       protocol: simplestreams
       alias: ubuntu/focal/cloud
+  when: forwarded_port is undefined
+
+
+# Container
+- name: Started container with portforwarding
+  lxd_container:
+    name: "{{instance_name}}"
+    state: started
+    profiles: ["dev","gui", "work"]
+    wait_for_ipv4_addresses: true
+    timeout: 600
+    source:
+      type: image
+      mode: pull
+      server: https://images.linuxcontainers.org
+      protocol: simplestreams
+      alias: ubuntu/focal/cloud
+    devices:
+      proxy:
+        type: proxy
+        listen: "tcp:0.0.0.0:{{forwarded_port}}"
+        connect: "tcp:127.0.0.1:{{forwarded_port}}"
+  when: forwarded_port is defined
+
