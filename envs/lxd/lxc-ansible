@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CONTAINER_IP=$(lxc info $1 | sed -nr 's/\s+eth0:\s+inet\s(.+)\s+\w+/\1/p')
+CONTAINER_IP=$(lxc info $1 | sed -nr 's/\s+eth0:[\S\s]+inet:\s+([0-9\.]+)/\1/p')
 echo $1 $2 $CONTAINER_IP
 ansible-playbook -i $CONTAINER_IP, $2 -u=ubuntu
 
