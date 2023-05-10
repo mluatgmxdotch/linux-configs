@@ -1,5 +1,5 @@
 #!/bin/bash
 
-sudo apt install libreoffice hunspell-de-ch-frami mythes-de-ch
+sudo apt install libreoffice hunspell-de-ch-frami mythes-de-ch pcmanfm arandr  adwaita-icon-theme-full lxappearance dbus-x11
 
 

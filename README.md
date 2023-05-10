@@ -63,4 +63,16 @@ ssh-keygen -t rsa
 mkdir ~/work
 cd ~/envs/lxd
 ansible-playbook playbook.yml
-```
+
+# Disable update-grub
+
+vim /etc/default/grub
+GRUB_CMDLINE_LINUX_DEFAULT="text"
+sudo update-grub
+
+
+# Install Grub Theme
+
+wget -P /tmp https://github.com/shvchk/poly-dark/raw/master/install.sh
+less /tmp/install.sh
+bash /tmp/install.sh
