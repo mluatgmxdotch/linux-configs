@@ -5,7 +5,7 @@
   lxd_container:
     name: "{{instance_name}}"
     state: started
-    profiles: ["dev","gui", "work", "port"]
+    profiles: ["dev","gui", "work"]
     wait_for_ipv4_addresses: true
     timeout: 600
     source:
@@ -13,7 +13,7 @@
       mode: pull
       server: https://images.linuxcontainers.org
       protocol: simplestreams
-      alias: ubuntu/focal/cloud
+      alias: ubuntu/jammy/cloud
   when: forwarded_port is undefined
 
 
@@ -30,7 +30,7 @@
       mode: pull
       server: https://images.linuxcontainers.org
       protocol: simplestreams
-      alias: ubuntu/focal/cloud
+      alias: ubuntu/jammy/cloud
     devices:
       proxy:
         type: proxy

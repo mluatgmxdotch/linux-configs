@@ -19,18 +19,6 @@
         pool: default
         type: disk
 
-# Profile forward
-- name: Port Profile
-  lxd_profile:
-    name: port
-    state: present
-    description: Port profile
-    devices:
-      proxy:
-        type: proxy
-        listen: tcp:0.0.0.0:8000
-        connect: tcp:127.0.0.1:8000
-
 # Profile initiate box with gui
 - name: GUI Profile
   lxd_profile:
