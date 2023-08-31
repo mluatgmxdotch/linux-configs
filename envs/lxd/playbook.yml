@@ -40,3 +40,6 @@
     - role: lxd_container
       vars:
         instance_name: "donna"
+        forwarded_port: "8083"
+  tags:
+    - dotnet
