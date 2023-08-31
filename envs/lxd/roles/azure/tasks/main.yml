@@ -1,0 +1,26 @@
+---
+- name: Import the APT repo key
+  ansible.builtin.get_url:
+    url: https://packages.microsoft.com/keys/microsoft.asc
+    dest: /etc/apt/trusted.gpg.d/microsoft.asc
+
+- name: Create the APT repository
+  ansible.builtin.apt_repository:
+    filename: azure-cli.list
+    repo: deb [signed-by=/etc/apt/trusted.gpg.d/microsoft.asc] https://packages.microsoft.com/repos/azure-cli/ {{ansible_distribution_release}} main
+
+
+- name: Install the application package
+  apt:
+    name: "{{ azure_package_name }}"
+    update_cache: yes
+
+#- name: Create the APT repository (functions)
+#  ansible.builtin.apt_repository:
+#    filename: azure-func.list
+#    repo: deb [signed-by=/etc/apt/trusted.gpg.d/microsoft.asc] https://packages.microsoft.com/repos/microsoft-ubuntu-{{ansible_distribution_release}}-prod/ {{ansible_distribution_release}} main
+#
+#- name: Install the application package
+#  apt:
+#    name: azure-functions-core-tools-4
+#    update_cache: yes
