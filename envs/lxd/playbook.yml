@@ -7,6 +7,7 @@
     - role: lxd_container
       vars:
         instance_name: "jakarta"
+        forwarded_port: []
 
 # node / ts
 - hosts: localhost
@@ -15,6 +16,7 @@
     - role: lxd_container
       vars:
         instance_name: "newfoundland"
+        forwarded_port: []
 
 # go
 - hosts: localhost
@@ -23,6 +25,7 @@
     - role: lxd_container
       vars:
         instance_name: "gozo"
+        forwarded_port: []
 
 # python
 - hosts: localhost
@@ -31,7 +34,9 @@
     - role: lxd_container
       vars:
         instance_name: "papua"
-        forwarded_port: 8000
+        forwarded_port: [8000]
+  tags:
+    - python
 
 # dotnet
 - hosts: localhost
@@ -40,6 +45,7 @@
     - role: lxd_container
       vars:
         instance_name: "donna"
-        forwarded_port: "8083"
+        forwarded_port: ["7780","7776","1313"]
+
   tags:
     - dotnet
