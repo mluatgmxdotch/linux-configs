@@ -26,6 +26,8 @@
       vars:
         instance_name: "gozo"
         forwarded_port: []
+  tags:
+    - go
 
 # python
 - hosts: localhost
@@ -45,7 +47,7 @@
     - role: lxd_container
       vars:
         instance_name: "donna"
-        forwarded_port: ["7780","7776","1313"]
+        forwarded_port: ["7780","7776","1313", "8080", "5000", "3000","7777","7781","8086"]
 
   tags:
     - dotnet

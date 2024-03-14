@@ -14,7 +14,7 @@
   apt: update_cache=yes
 
 - name: Install Dotnet SDK
-  apt: pkg=dotnet-sdk-7.0,aspnetcore-runtime-7.0 state=latest
+  apt: pkg=dotnet-sdk-8.0,aspnetcore-runtime-8.0 state=latest
   register: dotnetsdk
 
 
