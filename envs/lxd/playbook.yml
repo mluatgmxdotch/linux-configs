@@ -47,7 +47,8 @@
     - role: lxd_container
       vars:
         instance_name: "donna"
-        forwarded_port: ["7780","7776","1313", "8080", "5000", "3000","7777","7781","8086"]
+        forwarded_port: ["7780","7776","1313","3000","8080", "5000","443","7777","7778","7781", "8086"]
+        external_container_storage: "/mnt/docker/donna"
 
   tags:
     - dotnet

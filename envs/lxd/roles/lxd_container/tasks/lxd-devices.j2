@@ -4,6 +4,13 @@
     "type": "proxy",
     "listen": "tcp:0.0.0.0:{{port}}",
     "connect": "tcp:127.0.0.1:{{port}}"
-  }, 
+  },
 {% endfor %}
+{% if external_container_storage is defined %}
+  "diskContainer": {
+     "type": "disk",
+      "source": "{{external_container_storage}}",
+      "path": "/var/lib/docker"
+  }
+ {% endif %}
 }
