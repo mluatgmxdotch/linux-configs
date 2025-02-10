@@ -7,7 +7,7 @@
   lxd_container:
     name: "{{instance_name}}"
     state: started
-    profiles: ["dev","gui", "work"]
+    profiles: ["dev","gui", "work", "kvm"]
     wait_for_ipv4_addresses: true
     timeout: 600
     source:

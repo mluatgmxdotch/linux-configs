@@ -19,6 +19,37 @@
         pool: default
         type: disk
 
+
+- name: KVM Profile
+  lxd_profile:
+    name: kvm
+    state: present
+    config:
+      #raw.lxc: "lxc.cgroup.devices.allow = c 10:237 rw\nlxc.cgroup.devices.allow = b 259:* rw\nlxc.cgroup2.devices.allow = b 259:* rw"
+      security.syscalls.intercept.mount: "true"
+      security.syscalls.intercept.mount.allowed: ext4
+    devices:
+      kvm:
+        type: unix-char
+        source: /dev/kvm
+      vhost-net:
+        type: unix-char
+        source: /dev/vhost-net
+      vhost-vsock:
+        type: unix-char
+        source: /dev/vhost-vsock
+      loop19:
+        type: unix-block
+        source: /dev/loop19
+      loop2:
+        type: unix-block
+        source: /dev/loop2
+      loop-control:
+        type: unix-char
+        source: /dev/loop-control
+
+
+
 # Profile initiate box with gui
 - name: GUI Profile
   lxd_profile:
