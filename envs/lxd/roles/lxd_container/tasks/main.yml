@@ -13,9 +13,9 @@
     source:
       type: image
       mode: pull
-      server: https://images.linuxcontainers.org
+      server: https://cloud-images.ubuntu.com/releases/
       protocol: simplestreams
-      alias: ubuntu/jammy/cloud
+      alias: jammy
     devices: "{{ lookup('template', './lxd-devices.j2')  }}"
 
 
