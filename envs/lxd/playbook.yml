@@ -70,7 +70,9 @@
     - role: lxd_container
       vars:
         instance_name: "elba"
+        instance_type: virtual-machine
         forwarded_port: []
+        profiles: ["dev","vm"]
   tags:
     - edge
 

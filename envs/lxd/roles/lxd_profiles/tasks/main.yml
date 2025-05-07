@@ -25,7 +25,6 @@
     name: kvm
     state: present
     config:
-      #raw.lxc: "lxc.cgroup.devices.allow = c 10:237 rw\nlxc.cgroup.devices.allow = b 259:* rw\nlxc.cgroup2.devices.allow = b 259:* rw"
       security.syscalls.intercept.mount: "true"
       security.syscalls.intercept.mount.allowed: ext4
     devices:
@@ -38,16 +37,6 @@
       vhost-vsock:
         type: unix-char
         source: /dev/vhost-vsock
-      loop19:
-        type: unix-block
-        source: /dev/loop19
-      loop2:
-        type: unix-block
-        source: /dev/loop2
-      loop-control:
-        type: unix-char
-        source: /dev/loop-control
-
 
 
 # Profile initiate box with gui
@@ -65,6 +54,19 @@
         type: disk
       mygpu:
         type: gpu
+
+- name: VM Profile
+  lxd_profile:
+    name: vm
+    state: present
+    devices:
+      config:
+        source: cloud-init:config
+        type: disk
+      sharedwork:
+         path: /home/ubuntu/work
+         source: "/home/{{ansible_user_id}}/work"
+         type: disk
 
 # Profile to share work folder
 - name: Get User Id
@@ -87,5 +89,5 @@
     devices:
        sharedwork:
          path: /home/ubuntu/work
-         source: "/home/{{ansible_user_id}}/work/"
+         source: "/home/{{ansible_user_id}}/work"
          type: disk

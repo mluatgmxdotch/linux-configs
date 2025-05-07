@@ -6,16 +6,17 @@
 - name: Started container with portforwarding
   lxd_container:
     name: "{{instance_name}}"
+    type: "{{instance_type}}"
     state: started
-    profiles: ["dev","gui", "work", "kvm"]
+    profiles: "{{ profiles }}"
     wait_for_ipv4_addresses: true
-    timeout: 600
+    timeout: 600 
     source:
       type: image
       mode: pull
       server: https://cloud-images.ubuntu.com/releases/
       protocol: simplestreams
-      alias: jammy
+      alias: "{{image_alias}}"
     devices: "{{ lookup('template', './lxd-devices.j2')  }}"
 
 
