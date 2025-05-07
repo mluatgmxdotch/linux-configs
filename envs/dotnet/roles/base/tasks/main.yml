@@ -1,3 +1,0 @@
-- name: Install base packages
-  apt: pkg=curl,tree,zsh,htop,git state=latest
-  
