@@ -1,0 +1,31 @@
+---
+
+- name: Delete existing nvim
+  file:
+    path: "/opt/nvim-linux-x86_64"
+    state: absent
+
+- name: Create nvim home
+  ansible.builtin.file:
+    path: /opt/nvim
+    state: directory
+
+- name: Download and Unpack nvim
+  ansible.builtin.unarchive:
+    src: https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
+    dest: /opt/nvim
+    remote_src: yes
+    extra_opts: ['--strip-components=1', '--show-stored-names']
+
+- name: Ensure local bin exists
+  ansible.builtin.file:
+    path: "~/.local/bin"
+    state: directory
+  become: no
+
+- name: Create sym link
+  ansible.builtin.file:
+    src: /opt/nvim/bin/nvim
+    dest: "~/.local/bin/nvim"
+    state: link
+  become: no

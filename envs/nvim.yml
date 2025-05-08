@@ -1,0 +1,9 @@
+---
+- name:  Minimal setup
+  hosts: all, localhost
+  become: yes
+  gather_facts: True
+
+  roles:
+    - nvim
+

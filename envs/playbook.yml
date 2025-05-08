@@ -76,3 +76,9 @@
   tags:
     - edge
 
+- hosts: localhost
+  connection: local
+  roles:
+    - base
+    - vim
+    - ohmyzsh
