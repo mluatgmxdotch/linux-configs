@@ -8,3 +8,12 @@
 - name: Install Office Tools
   apt: pkg=libreoffice,hunspell-de-ch-frami,mythes-de-ch state=latest
 
+- name: Download and Unpack Nerdfonts
+  ansible.builtin.unarchive:
+     src: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/Terminus.zip
+     dest: /usr/local/share/fonts
+     remote_src: yes
+
+- name: Update fontcache
+  shell: fc-cache -f -v
+

@@ -32,3 +32,4 @@
     dest: "~/.local/bin/nvim"
     state: link
   become: no
+
