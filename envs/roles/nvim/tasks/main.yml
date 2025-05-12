@@ -1,7 +1,7 @@
 ---
 
 - name: Installing depenedencies
-  apt: pkg=curl,git,build-essential,ripgrep,fd-find state=latest
+  apt: pkg=curl,git,build-essential,ripgrep,fd-find,xclip state=latest
 
 - name: Delete existing nvim
   file:
