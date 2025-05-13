@@ -1,7 +1,9 @@
 ---
 - name: Install Lazygit
   shell: |
-   LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | \grep -Po '"tag_name": *"v\K[^"]*')
+   LAZYGIT_URL=$(curl -sL  https://github.com/jesseduffield/lazygit/releases/latest -w "%{url_effective}\n" -o /dev/null )
+   LAZYGIT_VERSION=$(basename $LAZYGIT_URL)
+   LAZYGIT_VERSION="${LAZYGIT_VERSION#v}"
    curl -Lo /tmp/lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/download/v${LAZYGIT_VERSION}/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
    cd /tmp
    tar xf lazygit.tar.gz lazygit
