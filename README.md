@@ -1,9 +1,8 @@
 # linux-configs
-Linux workstation configration files
+Linux workstation configuration files
 
-## Get Config
+## Get configs
 
-```
 sudo apt-get update
 sudo apt-get install git
 ```
@@ -76,3 +75,7 @@ sudo update-grub
 wget -P /tmp https://github.com/shvchk/poly-dark/raw/master/install.sh
 less /tmp/install.sh
 bash /tmp/install.sh
+
+# Check ZFS 
+ zfs list -t all
+
