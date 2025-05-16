@@ -33,3 +33,9 @@
     state: link
   become: no
 
+- name: Copy nvim config from host
+  copy:
+    src=~/.config/nvim
+    dest=~/.config/
+  when: config_from_host
+  become: no
