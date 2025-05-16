@@ -1,10 +1,13 @@
 ---
 - name: Add VS Code GPG key
-  apt_key: url=https://packages.microsoft.com/keys/microsoft.asc
+  ansible.builtin.get_url:
+    url: https://packages.microsoft.com/keys/microsoft.asc
+    dest: /etc/apt/trusted.gpg.d/microsoft.asc
+  
 
 - name: Add VS Code APT repository
   apt_repository:
-    repo: deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main
+    repo: deb [signed-by=/etc/apt/trusted.gpg.d/microsoft.asc] https://packages.microsoft.com/repos/vscode stable main
 
 - name: Install VS Code
-  apt: pkg=code,libasound2 state=latest
+  apt: pkg=code state=latest
