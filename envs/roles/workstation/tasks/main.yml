@@ -2,8 +2,16 @@
 - name: Installing basics
   apt: pkg=curl,tree,htop,ncdu,zsh state=latest
 
-- name: Install DE
-  apt: pkg=i3,lightdm,xautolock,pasystray,scrot,gimp,sxiv,sakura,imagemagick,pavucontrol,tango-icon-theme,ttf-mscorefonts-installer,lightdm-gtk-greeter-settings,pcmanfm,lxappearance,adwaita-icon-theme-full  state=latest
+- name: Install DE (common)
+  apt: pkg=i3,lightdm,xautolock,pasystray,scrot,gimp,sxiv,sakura,imagemagick,pavucontrol,tango-icon-theme,ttf-mscorefonts-installer,lightdm-gtk-greeter-settings,pcmanfm,lxappearance  state=latest
+
+- name: Install DE (22.04)
+  apt: pkg=adwaita-icon-theme-full state=latest
+  when: ansible_distribution_release == "jammy"
+
+- name: Install DE (latest)
+  apt: pkg=adwaita-icon-theme state=latest
+  when: ansible_distribution_release != "jammy"
 
 - name: Install Office Tools
   apt: pkg=libreoffice,hunspell-de-ch-frami,mythes-de-ch state=latest
