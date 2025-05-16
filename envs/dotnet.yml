@@ -6,13 +6,12 @@
 
   roles:
     - base
-    - vim
+    - nvim
     - ohmyzsh
     - x11forward
     - docker
     - code
     - dotnetdev
-    - nodedev
     - azure
     - terraform
 

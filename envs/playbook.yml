@@ -52,6 +52,18 @@
   tags:
     - dotnet
 
+# dotnet
+- hosts: localhost
+  connection: local
+  roles:
+    - role: lxd_container
+      vars:
+        instance_name: "dina"
+        image_alias: noble
+        forwarded_port: []
+  tags:
+    - dotnet-old
+
 # testing
 - hosts: localhost
   connection: local
@@ -62,7 +74,6 @@
          forwarded_port: []
   tags:
     - testing
-
 
 - hosts: localhost
   connection: local
@@ -76,9 +87,4 @@
   tags:
     - edge
 
-- hosts: localhost
-  connection: local
-  roles:
-    - base
-    - vim
-    - ohmyzsh
+       
