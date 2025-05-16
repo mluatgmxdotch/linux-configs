@@ -1,0 +1,82 @@
+# i3status configuration file.
+# see "man i3status" for documentation.
+
+# It is important that this file is edited as UTF-8.
+# The following line should contain a sharp s:
+# ß
+# If the above line is not correctly displayed, fix your editor first!
+
+general {
+        colors = true
+        interval = 5
+}
+
+order += "ipv6"
+order += "wireless _first_"
+order += "ethernet _first_"
+#order += "battery all"
+order += "read_file mouse"
+order += "read_file keyboard"
+order += "disk /"
+order += "disk /home/lube"
+order += "memory"
+order += "cpu_usage" 
+order += "load"
+order += "tztime local"
+
+wireless _first_ {
+        format_up = "W: (%quality at %essid) %ip"
+        format_down = "W: down"
+}
+
+ethernet _first_ {
+        format_up = "E: %ip (%speed)"
+        format_down = "E: down"
+}
+
+battery all {
+        format = "%status %percentage %remaining"
+}
+
+read_file mouse {
+        format = "🖯 %content"
+        format_bad = "🖯 -"
+        path = "/sys/class/power_supply/hidpp_battery_0/capacity_level"
+        separator = false
+}
+
+read_file keyboard {
+        format = "⌨ %content"
+        format_bad = "⌨  -"
+        path = "/sys/class/power_supply/hidpp_battery_1/capacity_level"
+}
+
+disk "/" {
+        #format = "🛢🖴 %avail (%percentage_used)"
+        format = "▤ %used (%percentage_used)"
+        separator = false
+}
+
+disk "/home/lube" {
+        format = "⌂ %used (%percentage_used)"
+}
+
+load {
+        format = "%1min"
+}
+
+cpu_usage {
+        format = "󰻠 %usage" #  🖥 💻 🖥 🧠 %cpu0 %cpu1 %cpu2 %cpu3
+        max_threshold = 75
+        separator = false
+}
+
+memory {
+        format = "  %used (%percentage_used)"
+        threshold_degraded = "1G"
+        format_degraded = "MEMORY < %available"
+}
+
+tztime local {
+        format = "%Y-%m-%d %H:%M:%S"
+}
