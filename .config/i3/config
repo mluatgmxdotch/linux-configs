@@ -171,5 +171,6 @@ exec --no-startup-id firefox
 exec_always --no-startup-id dbus-launch nm-applet
 exec_always --no-startup-id dbus-launch pasystray
 exec_always --no-startup-id dbus-launch blueman-applet
+exec_always --no-startup-id numlockx on
 
 for_window [title="Microsoft Teams Notification"] floating enable
