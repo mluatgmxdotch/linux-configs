@@ -84,6 +84,11 @@ label=
 #instance=/mnt/data
 interval=30
 
+[disk]
+label=C
+instance=/var/lib/lxd/storage-pools/default
+interval=30
+
 # CPU usage
 #
 # The script may be called with -w and -c switches to specify thresholds,

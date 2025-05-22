@@ -62,7 +62,7 @@
         image_alias: noble
         forwarded_port: []
   tags:
-    - dotnet-old
+    - dotnet-new
 
 # testing
 - hosts: localhost
