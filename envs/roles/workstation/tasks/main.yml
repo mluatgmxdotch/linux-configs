@@ -3,7 +3,7 @@
   apt: pkg=curl,tree,htop,ncdu,zsh state=latest
 
 - name: Install DE (common)
-  apt: pkg=i3,lightdm,xautolock,pasystray,scrot,gimp,sxiv,sakura,imagemagick,pavucontrol,tango-icon-theme,ttf-mscorefonts-installer,fonts-font-awesome, numlockx,lightdm-gtk-greeter-settings,pcmanfm,lxappearance  state=latest
+  apt: pkg=i3,lightdm,xautolock,pasystray,scrot,gimp,sxiv,sakura,imagemagick,pavucontrol,tango-icon-theme,ttf-mscorefonts-installer,fonts-font-awesome,numlockx,lightdm-gtk-greeter-settings,pcmanfm,lxappearance  state=latest
 
 - name: Install DE (22.04)
   apt: pkg=adwaita-icon-theme-full state=latest
