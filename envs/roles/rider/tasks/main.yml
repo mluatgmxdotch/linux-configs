@@ -1,0 +1,4 @@
+---
+- name: Install rider via SNAP
+  command: sudo snap install rider --classic
+     

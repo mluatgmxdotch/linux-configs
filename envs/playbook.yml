@@ -60,7 +60,8 @@
       vars:
         instance_name: "dina"
         image_alias: noble
-        forwarded_port: []
+        # aspire dashboard
+        forwarded_port: [ "17024"]
   tags:
     - dotnet-new
 

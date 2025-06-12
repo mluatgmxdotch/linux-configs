@@ -10,9 +10,7 @@
     - ohmyzsh
     - x11forward
     - docker
-    - code
+    - rider
     - dotnetdev
     - azure
-    - terraform
-
 
