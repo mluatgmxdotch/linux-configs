@@ -39,3 +39,39 @@
     dest=~/.config/
   when: config_from_host
   become: no
+
+- name: Enable csharp plugins
+  when: use_csharp
+  block:
+    - name: Add roslyn repo to mason LSP 
+      copy:
+        dest: "~/.config/nvim/lua/plugins/mason-roslyn-lsp.lua"
+        content: |
+          return {
+            { 
+              "mason-org/mason.nvim", 
+              opt = {
+                registries = {
+                    "github:mason-org/mason-registry",
+                    "github:Crashdummyy/mason-registry"
+                }
+              }
+            }
+          }
+      become: no
+    - name: Add roslyn plugin
+      copy:
+        dest: "~/.config/nvim/lua/plugins/seblyng-roslyn.lua"
+        content: |
+          return {
+            "seblyng/roslyn.nvim",
+            ft = "cs",
+            ---@module 'roslyn.config'
+            ---@type RoslynNvimConfig
+            opts = {
+                -- your configuration comes here; leave empty for default settings
+                -- NOTE: You must configure `cmd` in `config.cmd` unless you have installed via mason
+            }
+          }
+      become: no
+
