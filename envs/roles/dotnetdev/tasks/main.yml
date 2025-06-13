@@ -20,7 +20,14 @@
   apt: pkg=dotnet-sdk-8.0,aspnetcore-runtime-8.0 state=latest
   register: dotnetsdk
 
+- name: Add .NET backports PPA
+  ansible.builtin.apt_repository:
+    repo: ppa:dotnet/backports
+    state: present
+  when: (dotnet9) and (ansible_distribution_release != 'jammy')
 
-
-
+- name: Install Dotnet SDK 9
+  apt: pkg=dotnet-sdk-9.0 state=latest
+  register: dotnetsdk9
+  when: dotnet9
 
