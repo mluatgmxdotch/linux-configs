@@ -1,16 +1,21 @@
 ---
-- name: Node Cloud
+- name: DotNet
   hosts: all
   become: yes
   gather_facts: True
 
   roles:
     - base
-    - nvim
+    - role: nvim
+      vars:
+        use_csharp: true
     - ohmyzsh
     - x11forward
     - docker
     - rider
     - dotnetdev
+    - role: dotnetdev
+      vars:
+        dotnet9: true
     - azure
 
