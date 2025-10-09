@@ -1,0 +1,21 @@
+---
+
+- name: Install Kubectl
+  ansible.builtin.deb822_repository:
+    name: "pkgs-k8s-io-{{ kubectl_version }}"
+    types: [deb]
+    uris: "https://pkgs.k8s.io/core:/stable:/v{{ kubectl_version }}/deb"
+    signed_by: "https://pkgs.k8s.io/core:/stable:/v{{ kubectl_version }}/deb/Release.key"
+    suites: "/"
+    state: present
+    enabled: true
+  register: kube_repo
+
+- name: Update apt cache if repo was added.
+  ansible.builtin.apt: update_cache=yes
+  when: kube_repo is changed
+
+- name: install kubectl
+  apt: name=kubectl
+
+

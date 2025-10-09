@@ -10,12 +10,14 @@
       vars:
         use_csharp: true
     - ohmyzsh
+    - lazygit
     - x11forward
     - docker
-    - rider
+    - code
     - nodedev
     - role: dotnetdev
       vars:
         dotnet9: true
     - azure
+    - kubernetes
 
