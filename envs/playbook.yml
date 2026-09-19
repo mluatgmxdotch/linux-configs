@@ -83,6 +83,7 @@
       vars:
         instance_name: "avalon"
         image_alias: "resolute"
+        profiles: ["dev","work"]
         forwarded_port: []
   tags:
     - minimal
