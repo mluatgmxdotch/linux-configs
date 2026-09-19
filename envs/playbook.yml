@@ -82,7 +82,7 @@
     - role: lxd_container
       vars:
         instance_name: "avalon"
-        image_alias: noble
+        image_alias: "resolute"
         forwarded_port: []
   tags:
     - minimal
