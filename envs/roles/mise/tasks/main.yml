@@ -1,0 +1,20 @@
+---
+- name: Install extrepo
+  apt:
+    name: extrepo
+    state: present
+    update_cache: yes
+
+- name: Enable mise apt repository
+  ansible.builtin.command: extrepo enable mise
+  args:
+    creates: /etc/apt/sources.list.d/extrepo/mise.sources
+
+- name: Update apt cache
+  apt:
+    update_cache: yes
+
+- name: Install mise
+  apt:
+    name: mise
+    state: latest
