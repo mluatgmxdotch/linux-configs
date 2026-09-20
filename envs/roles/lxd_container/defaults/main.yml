@@ -2,5 +2,5 @@
 
 instance_type: container
 image_alias: jammy
-profiles: ["dev","gui", "work"]
+profiles: ["dev","gui", "work", "docker"]
 
