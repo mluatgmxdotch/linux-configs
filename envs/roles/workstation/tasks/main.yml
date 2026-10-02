@@ -13,6 +13,9 @@
   apt: pkg=adwaita-icon-theme state=latest
   when: ansible_distribution_release != "jammy"
 
+- name: Install Statusbar
+  apt: pkg=bumblebee-status,python3-psutil,python3-netifaces,iw,lm-sensors,x11-xserver-utils,upower,pulseaudio-utils state=latest
+
 - name: Install Office Tools
   apt: pkg=libreoffice,hunspell-de-ch-frami,mythes-de-ch state=latest
 
