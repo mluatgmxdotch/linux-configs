@@ -3,6 +3,12 @@
 
 Have `Ansible` and `LXD` installed
 
+Keep the `community.general` collection up to date, otherwise container creation can fail with a `"Not Found"` error (older versions POST to the deprecated `/1.0/containers` API endpoint):
+
+```
+ansible-galaxy collection install community.general --upgrade
+```
+
 ## How to use a Development Container
 
 ```
