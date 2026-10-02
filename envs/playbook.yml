@@ -75,6 +75,19 @@
   tags:
     - testing
 
+# minimal
+- hosts: localhost
+  connection: local
+  roles:
+    - role: lxd_container
+      vars:
+        instance_name: "avalon"
+        image_alias: noble
+        forwarded_port: []
+  tags:
+    - minimal
+    - agent
+
 - hosts: localhost
   connection: local
   roles:
