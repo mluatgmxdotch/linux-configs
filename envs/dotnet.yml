@@ -13,7 +13,7 @@
     - x11forward
     - docker
     - rider
-    - dotnetdev
+    - nodedev
     - role: dotnetdev
       vars:
         dotnet9: true
