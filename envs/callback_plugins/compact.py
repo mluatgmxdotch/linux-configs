@@ -23,8 +23,8 @@ class CallbackModule(CallbackBase):
         self.task_name = task.get_name()
 
     def _line(self, result, status, color):
-        self._display.display('{0}{1}: {2} {3}'.format(
-            self.task_prefix, self.task_name, result._host.get_name(), status), color=color)
+        self._display.display('{0}{1}: '.format(self.task_prefix, self.task_name), newline=False)
+        self._display.display('{0} {1}'.format(result._host.get_name(), status), color=color)
 
     def v2_runner_on_ok(self, result):
         status = 'changed' if result._result.get('changed') else 'ok'
