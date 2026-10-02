@@ -36,6 +36,13 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/plugins/zsh-autosuggestions
 ```
+# Status Bar
+bumblebee-status loads `~/.config/bumblebee-status.conf` (shared) and afterwards
+`~/.config/bumblebee-status/config` (host specific overrides). Link the host file:
+```
+ln -s ~/.config/bumblebee-status/hosts/$(hostname).conf ~/.config/bumblebee-status/config
+```
+
 # Install Spelling
 Install swiss german
 
