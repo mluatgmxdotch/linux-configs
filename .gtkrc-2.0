@@ -1,8 +1,9 @@
 # DO NOT EDIT! This file will be overwritten by LXAppearance.
 # Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
+include "/home/lube/.gtkrc-2.0.mine"
 gtk-theme-name="Adwaita"
-gtk-icon-theme-name="Adwaita"
+gtk-icon-theme-name="ubuntu-mono-dark"
 gtk-font-name="Sans 10"
 gtk-cursor-theme-name="DMZ-White"
 gtk-cursor-theme-size=0
@@ -14,4 +15,4 @@ gtk-enable-event-sounds=1
 gtk-enable-input-feedback-sounds=1
 gtk-xft-antialias=1
 gtk-xft-hinting=1
-gtk-xft-hintstyle="hintfull"
+gtk-xft-hintstyle="hintmedium"
