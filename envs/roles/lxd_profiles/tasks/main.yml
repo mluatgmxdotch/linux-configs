@@ -83,7 +83,6 @@
       security.idmap.base: "200000"
       security.idmap.isolated: "TRUE"
       security.idmap.size: "200000"
-      security.nesting: "true"
       raw.idmap: "uid {{getent_passwd[ansible_user_id].1}} 1000\ngid {{getent_passwd[ansible_user_id].2}} 1002\n"
 
     devices:
@@ -91,3 +90,11 @@
          path: /home/ubuntu/work
          source: "/home/{{ansible_user_id}}/work"
          type: disk
+
+- name: Docker Profile
+  lxd_profile:
+    name: docker
+    state: present
+    description: Enables nesting for running Docker inside a container
+    config:
+      security.nesting: "true"
