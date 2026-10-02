@@ -80,9 +80,16 @@ interval=30
 # The script may be called with a optional argument to set the alert
 # (defaults to 10 for 10%).
 [disk]
-label=
-#instance=/mnt/data
+command=~/.local/share/i3blocks/zpool.sh 
+instance=rpool
 interval=30
+separator=false
+
+[disk]
+label=  
+instance=/mnt/docker
+interval=30
+
 
 [disk]
 label=C
@@ -141,12 +148,12 @@ interval=10
 
 [power]
 command=~/.local/share/i3blocks/power.sh 🖱
-instance=mouse_hidpp_battery_1
+instance=battery_hidpp_battery_1
 interval=10
 
 [power]
 command=~/.local/share/i3blocks/power.sh ⌨ %
-instance=keyboard_hidpp_battery_0
+instance=battery_hidpp_battery_0
 interval=10
 separator=false
 separator_block_width=1
