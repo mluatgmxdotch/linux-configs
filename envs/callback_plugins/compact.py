@@ -22,18 +22,19 @@ class CallbackModule(CallbackBase):
         self.task_prefix = '[{0}] '.format(role.get_name()) if role else ''
         self.task_name = task.get_name()
 
-    def _line(self, result, status):
+    def _line(self, result, status, color):
         self._display.display('{0}{1}: {2} {3}'.format(
-            self.task_prefix, self.task_name, result._host.get_name(), status))
+            self.task_prefix, self.task_name, result._host.get_name(), status), color=color)
 
     def v2_runner_on_ok(self, result):
-        self._line(result, 'changed' if result._result.get('changed') else 'ok')
+        status = 'changed' if result._result.get('changed') else 'ok'
+        self._line(result, status, 'green')
 
     def v2_runner_on_failed(self, result, ignore_errors=False):
-        self._line(result, 'FAILED')
+        self._line(result, 'FAILED', 'red')
 
     def v2_runner_on_unreachable(self, result):
-        self._line(result, 'UNREACHABLE')
+        self._line(result, 'UNREACHABLE', 'red')
 
     def v2_runner_on_skipped(self, result):
-        self._line(result, 'skipped')
+        self._line(result, 'skipped', 'yellow')
