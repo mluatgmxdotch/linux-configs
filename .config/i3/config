@@ -154,9 +154,10 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         status_command bumblebee-status
-        font pango:Terminess Nerd Font 9
+        #font pango:Terminess Nerd Font  10
+        font pango:monospace, FontAwesome 9
         colors {
-                background #000000
+                background #111111
         }
 }
 
@@ -172,8 +173,8 @@ exec --no-startup-id i3-sensible-terminal
 exec --no-startup-id i3-sensible-terminal
 exec --no-startup-id firefox
 exec_always --no-startup-id dbus-launch nm-applet
-exec_always --no-startup-id dbus-launch pasystray
-exec_always --no-startup-id dbus-launch blueman-applet
+#xec_always --no-startup-id dbus-launch pasystray
+#xec_always --no-startup-id dbus-launch blueman-applet
 exec_always --no-startup-id numlockx on
 
 for_window [title="Microsoft Teams Notification"] floating enable
